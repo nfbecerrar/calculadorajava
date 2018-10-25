@@ -23,6 +23,10 @@ var botonmas =document.getElementById('mas');
 var pantalla =document.getElementById('display');
 var opera1;
 var opera2;
+var opera3;
+var opera4;
+var opera5;
+var opera6;
 var operacion;
 
 //creando los comandos para precionar los botones
@@ -272,24 +276,24 @@ botonmas.addEventListener("click", function (e) {
   limpiar();
 })
 botonmenos.addEventListener("click", function (e) {
-  opera1 = pantalla.innerHTML;
+  opera2 = pantalla.innerHTML;
   operacion = "-";
   limpiar();
 })
 botonpor.addEventListener("click", function (e) {
-  opera1 = pantalla.innerHTML;
+  opera3 = pantalla.innerHTML;
   operacion = "*";
   limpiar();
 })
 botondiv.addEventListener("click", function (e) {
-  opera1 = pantalla.innerHTML;
+  opera4 = pantalla.innerHTML;
   operacion = "/";
   limpiar();
 })
 
 //funcion de igual
 botonigual.addEventListener("click", function (e) {
-  opera2 = pantalla.innerHTML;
+  opera5 = pantalla.innerHTML;
   resolver();
   //para que solo muestre 8 digitos
   pantalla.innerHTML = String(pantalla.innerHTML).substr(0,8);
@@ -302,8 +306,11 @@ function limpiar() {
 //funcion resetear
 function resetar() {
   pantalla.innerHTML = "";
-  opera1 = 0;
-  opera2 = 0;
+  opera1 = "";
+  opera2 = "";
+  opera3 = "";
+  opera4 = "";
+  opera5 = "";
   operacion = "";
 }
 
@@ -312,16 +319,16 @@ function resolver() {
   var res = 0;
   switch (operacion) {
     case "+":
-      res = parseFloat (opera1) + parseFloat(opera2);
+      res = parseFloat (opera1) + parseFloat(opera5);
      break;
     case "-":
-      res = parseFloat (opera1) - parseFloat(opera2);
-     break;
-    case "/":
-        res = parseFloat (opera1) / parseFloat(opera2);
+      res = parseFloat (opera2) - parseFloat(opera5);
      break;
     case "*":
-          res = parseFloat (opera1) * parseFloat(opera2);
+        res = parseFloat (opera3) * parseFloat(opera5);
+     break;
+    case "/":
+          res = parseFloat (opera4) / parseFloat(opera5);
       break;
   }
   limpiar();
