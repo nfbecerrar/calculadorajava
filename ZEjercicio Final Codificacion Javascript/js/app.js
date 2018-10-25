@@ -1,3 +1,5 @@
+function calculadora() {
+
 //creamos las variables
 var boton0 = document.getElementById('0');
 var boton1 =document.getElementById('1');
@@ -289,6 +291,8 @@ botondiv.addEventListener("click", function (e) {
 botonigual.addEventListener("click", function (e) {
   opera2 = pantalla.innerHTML;
   resolver();
+  //para que solo muestre 8 digitos
+  pantalla.innerHTML = String(pantalla.innerHTML).substr(0,8);
 })
 // funcion de limpiar
 function limpiar() {
@@ -320,8 +324,8 @@ function resolver() {
           res = parseFloat (opera1) * parseFloat(opera2);
       break;
   }
-  resetar();
-  pantalla.innerHTML = res;
+  limpiar();
+  pantalla.innerHTML = pantalla.innerHTML + res;
 }
 
 //cambio de signo
@@ -329,3 +333,7 @@ botonsign.addEventListener("click", function (e) {
     aux = parseFloat (pantalla.innerHTML) * (-1);
     pantalla.innerHTML=aux;
   })
+}
+
+//corremos la funcion calculadora
+calculadora();
